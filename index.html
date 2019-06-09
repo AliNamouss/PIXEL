@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <style >
+            .logo {
+                width: 5%;
+                height: auto;
+            }
+            .bg{
+                padding: 10px;
+                background-color: #a60000;
+            }
+            .bg-nav{
+                background-color: rgb(255, 255, 255);
+                box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.173);
+            }
+            .content-1 {
+                padding-left: 0;
+                padding-right: 0;
+                margin: 0 auto;
+                display: block;
+                float: none;
+                width: 100%;
+                height: 100%;
+                padding-top: 10px;
+            }
+            .icn {
+                margin: 20px;
+            }
+            .p{
+                padding-left: 250px;
+            }
+            @media screen and (max-width: 992px){
+                .logo {
+                    width: 17%;
+                    height: auto;
+                }
+                .p{
+                    padding-left: 0px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="container-fluid bg">
+                <div class="text-center">
+                    <a href="index.html"><img src="img/logo.png" class="logo" alt=""></a>
+                </div>
+            </div>
+            <div class="container-fluid bg-nav">
+                <form id="imageEditor">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-2" style="padding: 10px;">
+                                    <div class="row text-center">
+                                        <div class="col-md-6 col-6">
+                                            <button type="button" id="camera" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
+                                                Camera
+                                            </button>
+                                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Prendre une photo</h5>
+                                                            <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <video id="video" autoplay class="content-1"></video>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                            <button type="button" id="close1" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                            <button type="button" id="copie" class="btn btn-primary" data-dismiss="modal">Copier image courante</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-6">
+                                            <label for="imageUpload" class="btn btn-link" style="cursor: pointer;">
+                                                Upload
+                                            </label>
+                                            <input type="file" id="imageUpload" class="form-control" accept="image/*" name="photo" style="display: none">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="row" style="padding: 10px">
+                                        <div class="col-md-1 col-4">
+                                            <div class="dropdown">
+                                                <button type="button" class="btn btn-link" id="Grayscale" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="icn">Grayscale</i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="Grayscale">
+                                                    <div class="form-group">
+                                                        <div class="col-lg-12">
+                                                            <input type="range" id="grayscale" class="slider custom-range"min="0" max="100" value="0" step="1">
+                                                            <span class="slider_label"></span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1 col-4">
+                                            <div class="dropdown">
+                                                <button type="button" class="btn btn-link" id="Blur" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="icn">Blur</i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="Blur">
+                                                    <div class="form-group">
+                                                        <div class="col-lg-12">
+                                                            <input type="range" id="blur" class="slider custom-range" min=0 max=100 value=0 step="1">
+                                                            <span class="slider_label"></span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1 col-4">
+                                            <div class="dropdown">
+                                                <button type="button" class="btn btn-link" id="Brightness" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="material-icons icn">Brightness</i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="Brightness">
+                                                    <div class="form-group">
+                                                        <div class="col-lg-12">
+                                                            <input type="range" id="brightness" class="slider custom-range"  min=0 max=200 value=100 step="1">
+                                                            <span class="slider_label"></span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1 col-4">
+                                            <div class="dropdown">
+                                                <button type="button" class="btn btn-link" id="Contrast" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="material-icons icn">Contrast</i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="Contrast">
+                                                    <div class="form-group">
+                                                        <div class="col-lg-12">
+                                                            <input type="range" id="contrast" class="slider custom-range"  min=0 max=200 value=100>step="1">
+                                                            <span class="slider_label"></span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1 col-4">
+                                            <div class="dropdown">
+                                                <button type="button" class="btn btn-link" id="Hue_Rotate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="material-icons icn">Hue_Rotate</i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="Hue_Rotate">
+                                                    <div class="form-group">
+                                                        <div class="col-lg-12">
+                                                            <input type="range" id="hue" class="slider custom-range" min=0 max=360 value=0 step="1" >
+                                                            <span class="slider_label"></span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1 col-4">
+                                            <div class="dropdown">
+                                                <button type="button" class="btn btn-link" id="Opacity" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="material-icons icn">Opacity</i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="Opacity">
+                                                    <div class="form-group">
+                                                        <div class="col-lg-12">
+                                                            <input type="range" id="opacity" class="slider custom-range" min=0 max=100 value=100 step="1" >
+                                                            <span class="slider_label"></span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1 col-4">
+                                            <div class="dropdown">
+                                                <button type="button" class="btn btn-link" id="Invert" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="material-icons icn">Invert</i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="Invert">
+                                                    <div class="form-group">
+                                                        <div class="col-lg-12">
+                                                            <input type="range" id="invert" class="slider custom-range" min=0 max=100 value=0 step="1" >
+                                                            <span class="slider_label"></span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1 col-4">
+                                            <div class="dropdown">
+                                                <button type="button" class="btn btn-link" id="Saturate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="material-icons icn">Saturate</i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="Saturate">
+                                                    <div class="form-group">
+                                                        <div class="col-lg-12">
+                                                            <input type="range" id="saturate" class="slider custom-range" min=0 max=500 value=100 step="1">
+                                                            <span class="slider_label"></span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1 col-4">
+                                            <div class="dropdown">
+                                                <button type="button" class="btn btn-link" id="Sepia" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="material-icons icn">Sepia</i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="Sepia">
+                                                    <div class="form-group">
+                                                        <div class="col-lg-12">
+                                                            <input type="range" id="sepia" class="slider custom-range" min=0 max=100 value=0 step="1" >
+                                                            <span class="slider_label"></span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1 col-4">
+                                            <div class="text-center">
+                                                <button type="reset" class="btn btn-warning btn-sx" id="reset">
+                                                Reset
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1 col-4">
+                                            <div class="text-center">
+                                                <a href="#" class="btn btn-success btn-sx" id="save">
+                                                Save
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </header>
+        <div class="container">
+            <div class="col-md-12" style="padding-top: 20px">
+                <div class="full-width-div p">
+                    <canvas id="canvasEditor" width="750" height="500">
+                        Désolé, votre navigateur ne supporte pas les &lt;canvas&gt; élément.
+                    </canvas>
+                    <canvas id="source" width="750" height="500" hidden>
+                        Désolé, votre navigateur ne supporte pas les &lt;canvas&gt; élément.
+                    </canvas>
+                </div>
+                
+            </div>
+        </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+        <script>
+            $(function(){
+                const canvas = document.querySelector('#canvasEditor')
+                const ctx = canvas.getContext('2d')
+
+                const canvas1 = document.querySelector('#source')
+                const ctx1 = canvas1.getContext('2d')
+
+                const video = document.querySelector('#video')
+
+                $('.slider').on('input change', function(){ 
+                    $(this).next($('.slider_label')).html(this.value);
+                });
+                $('.slider_label').each(function(){
+                    const value = $(this).prev().attr('value');
+                    $(this).html(value);
+                });
+
+                function activeCamera() {
+                    navigator.mediaDevices.getUserMedia({video: true}).then(function(stream){
+                        video.srcObject = stream
+                    })
+                }
+                $( "#camera" ).on( "click", activeCamera );  
+
+                function desactiveCamera() {
+                    let stream = video.srcObject;
+                    let tracks = stream.getTracks();
+
+                    tracks.forEach(function(track) {
+                        track.stop();
+                    });
+
+                    video.srcObject = null;
+                }
+                $( "#close,#close1" ).on( "click", desactiveCamera );
+                function copier(e) {
+                    ctx1.clearRect(0, 0, canvas1.width, canvas1.height)
+                    ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+                    ctx.drawImage(video, video.width, video.height)
+                    ctx1.drawImage(video, video.width, video.height)
+                    desactiveCamera()
+                }
+                $( "#copie" ).on( "click", copier );
+
+                function handleImage(e){
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    const reader = new FileReader();
+                    reader.onload = function(event){
+                        const imgNew = new Image();
+                        imgNew.onload = function(){
+                            canvas.width = imgNew.width;
+                            canvas.height = imgNew.height;
+                            ctx.drawImage(imgNew,0,0,750,600);
+
+                            canvas1.width = imgNew.width;
+                            canvas1.height = imgNew.height;
+                            ctx1.drawImage(imgNew,0,0,750,600);
+                        }
+                        imgNew.src = event.target.result;
+                    }
+                    reader.readAsDataURL(e.target.files[0]);  
+                }
+                $( "#imageUpload" ).on('change', handleImage);
+                function editImage() {
+	
+                    var grayscale  = $("#grayscale").val();     	 // grayscale
+                    var blur 	   = $("#blur").val();    // blur
+                    var brightness = $("#brightness").val();      // brightness
+                    var contrast   = $("#contrast").val();      // contrast
+                    var hue	       = $("#hue").val();    //hue-rotate
+                    var opacity    = $("#opacity").val(); //opacity
+                    var invert 	   = $("#invert").val();  //invert
+                    var saturate   = $("#saturate").val();//saturate
+                    var sepia 	   = $("#sepia").val();   //sepia
+
+                    var allFiltre = 	'grayscale(' + grayscale+ '%) blur(' + blur +'px) brightness(' + 
+                            brightness + '%) contrast(' + contrast + '%) hue-rotate(' + hue +'deg) opacity(' + 
+                            opacity +'%) invert(' + invert +'%) saturate(' + saturate +'%) sepia(' + sepia + '%)';
+         
+                    const img = new Image()
+                    const dataUrl = canvas1.toDataURL("image/jpeg")
+                    img.src = dataUrl
+                    img.onload = function() {
+                        ctx.save()
+                        ctx.filter = allFiltre
+                        ctx.drawImage(img, 0, 0)
+                        ctx.restore()
+                    }
+                    
+                    
+                }
+                $( "input[type=range]" ).on('change', editImage);
+                function reset() {
+                    applyFilter()
+                }
+                $( "#reset" ).on('click', reset);
+            })
+        </script>
+    </body>
+</html>
